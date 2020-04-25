@@ -573,10 +573,10 @@ export default class Element extends Node {
 				}
 
 			} else if (name === 'open') {
-				if (this.name !== 'details') {
+				if (!["details", "dialog"].includes(this.name)) {
 					component.error(binding, {
 						code: `invalid-binding`,
-						message: `'${name}' binding can only be used with <details>`
+						message: `'${name}' binding can only be used with <details> and <dialog>`,
 					});
 				}
 			} else if (
